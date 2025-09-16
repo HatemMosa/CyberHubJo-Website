@@ -159,6 +159,24 @@ main {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.card-header img {
+  width: 88px;
+  height: 88px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(13, 71, 161, 0.18);
+  flex-shrink: 0;
+}
+
+
 .card:hover,
 .card:focus-within {
   transform: translateY(-6px);
@@ -170,6 +188,24 @@ main {
   margin-bottom: 12px;
   font-size: 1.25rem;
 }
+
+.card .role {
+  color: var(--secondary-color);
+  font-weight: 600;
+  margin-top: -6px;
+}
+
+.card .email {
+  margin-bottom: 0;
+  color: var(--muted-text);
+  font-size: 0.95rem;
+}
+
+.card .email a {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
 
 .card p {
   color: var(--muted-text);
@@ -335,6 +371,28 @@ footer a {
   color: #fff;
   font-weight: 600;
 }
+
+@media (max-width: 600px) {
+  .card-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card-header div {
+    text-align: center;
+  }
+
+  .card-header img {
+    width: 96px;
+    height: 96px;
+  }
+
+  .card .email {
+    text-align: center;
+  }
+}
+
 
 @media (max-width: 768px) {
   nav ul {

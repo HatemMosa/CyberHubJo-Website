@@ -151,6 +151,22 @@ main {
   gap: 24px;
 }
 
+.cards.team-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-items: stretch;
+}
+
+.cards.team-grid .card-founder {
+  grid-column: 2;
+  border: 2px solid rgba(255, 193, 7, 0.4);
+  box-shadow: 0 20px 40px rgba(13, 71, 161, 0.15);
+}
+
+.cards.team-grid .card:last-child {
+  grid-column: 2;
+}
+
+
 .card {
   background: #fff;
   border-radius: var(--border-radius);
@@ -211,6 +227,35 @@ main {
   color: var(--muted-text);
   margin-bottom: 12px;
 }
+
+.card .bio {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 193, 7, 0.18);
+  color: var(--primary-color);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.badge::before {
+  content: '★';
+  font-size: 0.75rem;
+  color: var(--accent-color);
+}
+
 
 .card .links {
   display: flex;
@@ -390,6 +435,23 @@ footer a {
 
   .card .email {
     text-align: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cards.team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cards.team-grid .card-founder,
+  .cards.team-grid .card:last-child {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .cards.team-grid {
+    grid-template-columns: 1fr;
   }
 }
 

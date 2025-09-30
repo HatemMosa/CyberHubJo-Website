@@ -277,6 +277,10 @@ main {
   gap: 24px;
 }
 
+.cards.media-grid {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
 .cards.team-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-template-areas:
@@ -325,6 +329,45 @@ main {
   padding: 24px;
   box-shadow: var(--card-shadow);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.media-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.media-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.media-card__meta a {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--primary-color);
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(13, 71, 161, 0.1);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.media-card__meta a:hover,
+.media-card__meta a:focus {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.media-card video {
+  width: 100%;
+  border-radius: calc(var(--border-radius) - 4px);
+  box-shadow: 0 12px 24px rgba(13, 71, 161, 0.18);
+  background: #000;
+  aspect-ratio: 16 / 9;
 }
 
 .card-header {

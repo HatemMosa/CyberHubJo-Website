@@ -1,6 +1,6 @@
 # CyberHubJo Website
 
-A static website for CyberHubJo featuring dedicated pages for the organisation's vision, team, publications, activities, resources, and contact information.
+A static website for CyberHubJo featuring dedicated pages for the organisation's vision, team, publications, activities, media gallery, resources, and contact information.
 
 ## Pages
 
@@ -8,6 +8,7 @@ A static website for CyberHubJo featuring dedicated pages for the organisation's
 - **Our Team** – Profiles of seven core contributors with contact links.
 - **Publications** – Placeholder page noting that publications are to be announced.
 - **Activities** – Timeline highlighting milestones and community impact.
+- **Gallery** – Video highlights paired with their LinkedIn context.
 - **Useful Resources** – Curated list of helpful articles and media content.
 - **Contact Us** – Primary contact email for enquiries.
 
@@ -23,6 +24,7 @@ index.html       # Home page
 team.html        # Team profiles
 publications.html# Publications placeholder
 activities.html  # Activities timeline
+gallery.html     # Media highlights with LinkedIn links
 resources.html   # Useful resources
 contact.html     # Contact details
 ```

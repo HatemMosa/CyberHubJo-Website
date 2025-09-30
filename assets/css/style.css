@@ -26,6 +26,11 @@ body {
   flex-direction: column;
 }
 
+body.nav-open {
+  overflow: hidden;
+}
+
+
 a {
   color: inherit;
   text-decoration: none;
@@ -52,40 +57,99 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  gap: 24px;
 }
 
-.logo {
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
   font-weight: 700;
   font-size: 1.35rem;
   color: var(--primary-color);
   letter-spacing: 0.4px;
 }
 
-nav ul {
+.brand-logo {
+  width: 64px;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(13, 71, 161, 0.15);
+  background: #fff;
+}
+
+.brand-name {
+  display: inline-block;
+}
+
+nav {
+  margin-left: auto;
+}
+
+.nav-links {
   display: flex;
+  align-items: center;
+
   list-style: none;
   gap: 24px;
 }
 
-nav a {
+.nav-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: auto;
+  border-radius: 8px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--primary-color);
+  border-radius: 999px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-toggle span + span {
+  margin-top: 6px;
+}
+
+.nav-links a {
+
   font-weight: 500;
   color: var(--muted-text);
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
-nav a:hover,
-nav a:focus {
+.nav-links a:hover,
+.nav-links a:focus {
+
   color: var(--primary-color);
   transform: translateY(-2px);
 }
 
-nav a[aria-current='page'] {
+.nav-toggle:focus-visible,
+.nav-links a:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 4px;
+}
+
+.nav-links a[aria-current='page'] {
+
   color: var(--primary-color);
   font-weight: 600;
   position: relative;
 }
 
-nav a[aria-current='page']::after {
+.nav-links a[aria-current='page']::after {
+
   content: '';
   position: absolute;
   left: 0;
@@ -95,6 +159,19 @@ nav a[aria-current='page']::after {
   background: var(--accent-color);
   border-radius: 999px;
 }
+
+.nav-toggle[aria-expanded='true'] span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded='true'] span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded='true'] span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
 
 main {
   flex: 1;
@@ -158,11 +235,13 @@ main {
     "eman amro yasmeen"
     "saleem ebtehal abedlrahman";
 
+  
   justify-items: stretch;
 }
 
 .cards.team-grid .card-founder {
 
+  
   border: 2px solid rgba(255, 193, 7, 0.4);
   box-shadow: 0 20px 40px rgba(13, 71, 161, 0.15);
 }
@@ -196,6 +275,7 @@ main {
 }
 
 
+
 .card {
   background: #fff;
   border-radius: var(--border-radius);
@@ -203,6 +283,7 @@ main {
   box-shadow: var(--card-shadow);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
 
 
 .card-header {
@@ -220,6 +301,7 @@ main {
   box-shadow: 0 8px 20px rgba(13, 71, 161, 0.18);
   flex-shrink: 0;
 }
+
 
 
 .card:hover,
@@ -254,6 +336,7 @@ main {
 }
 
 
+
 .card p {
   color: var(--muted-text);
   margin-bottom: 12px;
@@ -286,6 +369,7 @@ main {
   font-size: 0.75rem;
   color: var(--accent-color);
 }
+
 
 
 .card .links {
@@ -448,6 +532,60 @@ footer a {
   font-weight: 600;
 }
 
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+  }
+
+  nav {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 24px;
+    left: 24px;
+    z-index: 1000;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.97);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+  }
+
+  .nav-links.is-open {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    left: 16px;
+    right: 16px;
+  }
+
+  .brand-logo {
+    width: 52px;
+  }
+}
+
+
 @media (max-width: 600px) {
   .card-header {
     flex-direction: column;
@@ -495,14 +633,7 @@ footer a {
   }
 }
 
-
 @media (max-width: 768px) {
-  nav ul {
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-  }
-
   .timeline::before {
     left: 18px;
   }

@@ -19,9 +19,30 @@
   <body>
     <header>
       <div class="nav-container">
-        <a class="logo" href="index.html">CyberHubJo</a>
+        <a class="brand" href="index.html">
+          <img
+            src="https://i.ibb.co/TMT9mzGX/Logo.jpg"
+            alt="CyberHubJo logo"
+            class="brand-logo"
+            width="64"
+            height="36"
+          />
+          <span class="brand-name">CyberHubJo</span>
+        </a>
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          aria-controls="primary-navigation"
+          type="button"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <nav aria-label="Primary">
-          <ul>
+          <ul class="nav-links" id="primary-navigation">
+
             <li><a href="index.html">Home</a></li>
             <li><a href="team.html" aria-current="page">Our Team</a></li>
             <li><a href="publications.html">Publications</a></li>
@@ -59,7 +80,6 @@
               <img
                 src="https://i.ibb.co/5hH03Fn4/Hatem.png"
 
-                   
                 alt="Portrait of Hatem Mosa"
                 loading="lazy"
               />
@@ -99,7 +119,6 @@
                   <strong>CyberHub Email:</strong>
                   <a href="mailto:e.alnagi@cyberhubjo.com">e.alnagi@cyberhubjo.com</a>
 
-                  
                 </p>
               </div>
             </div>
@@ -166,7 +185,6 @@
               and AI, specializing in adversarial machine learning, IDS
               innovation, and emerging LLM exploration...
 
-              
             </p>
             <div class="links">
               <a href="https://www.linkedin.com/in/yasmeen-alslman-61468a198/?originalSubdomain=jo" target="_blank" rel="noopener">LinkedIn</a>
@@ -180,7 +198,6 @@
               <img
                 src="https://i.ibb.co/dsZ2by9n/Saleem.png"
 
-                   
                 alt="Portrait of Saleem Alsaraireh"
                 loading="lazy"
               />
@@ -198,7 +215,6 @@
               Lieutenant Colonel advancing military communications and
               cybersecurity leadership across 17+ years of service...
 
-              
             </p>
             <div class="links">
               <a href="https://www.linkedin.com/in/saleem-alsaraireh-aa6611352/" target="_blank" rel="noopener">LinkedIn</a>
@@ -240,7 +256,6 @@
               <img
                 src="https://i.ibb.co/dJxLvMhn/Abdulrahman.jpg"
 
-                   
                 alt="Portrait of AbedlRahman Almodawar"
                 loading="lazy"
               />
@@ -258,14 +273,12 @@
               lecturer whose research centers on AI, cloud and edge computing,
               and cybersecurity for modern learning environments...
 
-              
             </p>
             <div class="links">
               <a href="https://www.linkedin.com/in/abedlrahman-almodawar-74b90128/" target="_blank" rel="noopener">LinkedIn</a>
               <a href="https://scholar.google.com/citations?hl=en&amp;user=fl0s05oAAAAJ&amp;view_op=list_works&amp;sortby=pubdate" target="_blank" rel="noopener">Google Scholar</a>
               <a href="https://www.researchgate.net/profile/Abedlrahman-Almodawar?ev=hdr_xprf" target="_blank" rel="noopener">ResearchGate</a>
 
-              
             </div>
           </article>
         </div>
@@ -279,11 +292,7 @@
       </p>
     </footer>
 
-    <script>
-      const yearElement = document.getElementById('year');
-      if (yearElement) {
-        yearElement.textContent = new Date().getFullYear();
-      }
-    </script>
+    <script src="assets/js/main.js"></script>
+
   </body>
 </html>

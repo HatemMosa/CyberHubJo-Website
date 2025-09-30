@@ -19,9 +19,30 @@
   <body>
     <header>
       <div class="nav-container">
-        <a class="logo" href="index.html">CyberHubJo</a>
+        <a class="brand" href="index.html">
+          <img
+            src="https://i.ibb.co/TMT9mzGX/Logo.jpg"
+            alt="CyberHubJo logo"
+            class="brand-logo"
+            width="64"
+            height="36"
+          />
+          <span class="brand-name">CyberHubJo</span>
+        </a>
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          aria-controls="primary-navigation"
+          type="button"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <nav aria-label="Primary">
-          <ul>
+          <ul class="nav-links" id="primary-navigation">
+
             <li><a href="index.html">Home</a></li>
             <li><a href="team.html">Our Team</a></li>
             <li><a href="publications.html">Publications</a></li>
@@ -66,11 +87,6 @@
       </p>
     </footer>
 
-    <script>
-      const yearElement = document.getElementById('year');
-      if (yearElement) {
-        yearElement.textContent = new Date().getFullYear();
-      }
-    </script>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>

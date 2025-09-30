@@ -249,6 +249,8 @@ main {
 .card .email a {
   color: var(--primary-color);
   font-weight: 600;
+  display: inline-block;
+  overflow-wrap: anywhere;
 }
 
 

@@ -30,10 +30,6 @@ body.nav-open {
   overflow: hidden;
 }
 
-
-
-
-
 a {
   color: inherit;
   text-decoration: none;
@@ -68,10 +64,6 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-
-  
-  
-  
   font-weight: 700;
   font-size: 1.35rem;
   color: var(--primary-color);
@@ -99,10 +91,6 @@ nav {
 .nav-links {
   display: flex;
   align-items: center;
-
-  
-  
-  
   list-style: none;
   gap: 24px;
 }
@@ -131,10 +119,6 @@ nav {
 }
 
 .nav-links a {
-
-  
-  
-  
   font-weight: 500;
   color: var(--muted-text);
   transition: color 0.2s ease, transform 0.2s ease;
@@ -231,6 +215,19 @@ main {
 
 .hero--video .hero-content p {
   color: rgba(245, 249, 255, 0.85);
+}
+
+.hero--video .card {
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--text-color);
+}
+
+.hero--video .card h3 {
+  color: var(--primary-color);
+}
+
+.hero--video .card p {
+  color: var(--muted-text);
 }
 
 @media (prefers-reduced-motion: reduce) {

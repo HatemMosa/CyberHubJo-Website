@@ -20,6 +20,8 @@ assets/
   js/
     main.js     # Shared behaviour for navigation and footer year
 
+
+
 index.html       # Home page
 team.html        # Team profiles
 publications.html# Publications placeholder

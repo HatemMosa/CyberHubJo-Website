@@ -71,8 +71,9 @@ header {
 }
 
 .brand-logo {
-  width: 46px;
-  height: 46px;
+  width: 64px;
+  aspect-ratio: 16 / 9;
+  height: auto;
   object-fit: contain;
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(13, 71, 161, 0.15);
@@ -558,8 +559,7 @@ footer a {
   }
 
   .brand-logo {
-    width: 40px;
-    height: 40px;
+    width: 52px;
   }
 }
 

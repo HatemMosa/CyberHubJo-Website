@@ -157,10 +157,12 @@ main {
     ". founder ."
     "eman amro yasmeen"
     "saleem ebtehal abedlrahman";
+
   justify-items: stretch;
 }
 
 .cards.team-grid .card-founder {
+
   border: 2px solid rgba(255, 193, 7, 0.4);
   box-shadow: 0 20px 40px rgba(13, 71, 161, 0.15);
 }
@@ -193,6 +195,7 @@ main {
   grid-area: abedlrahman;
 }
 
+
 .card {
   background: #fff;
   border-radius: var(--border-radius);
@@ -200,6 +203,7 @@ main {
   box-shadow: var(--card-shadow);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
 
 .card-header {
   display: flex;
@@ -216,6 +220,7 @@ main {
   box-shadow: 0 8px 20px rgba(13, 71, 161, 0.18);
   flex-shrink: 0;
 }
+
 
 .card:hover,
 .card:focus-within {
@@ -247,6 +252,7 @@ main {
   display: inline-block;
   overflow-wrap: anywhere;
 }
+
 
 .card p {
   color: var(--muted-text);
@@ -280,6 +286,7 @@ main {
   font-size: 0.75rem;
   color: var(--accent-color);
 }
+
 
 .card .links {
   display: flex;
@@ -470,6 +477,7 @@ footer a {
       "eman amro"
       "yasmeen saleem"
       "ebtehal abedlrahman";
+
   }
 }
 
@@ -486,6 +494,7 @@ footer a {
       "abedlrahman";
   }
 }
+
 
 @media (max-width: 768px) {
   nav ul {

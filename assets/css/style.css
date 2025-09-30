@@ -30,6 +30,10 @@ body.nav-open {
   overflow: hidden;
 }
 
+
+
+
+
 a {
   color: inherit;
   text-decoration: none;
@@ -64,6 +68,10 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 12px;
+
+  
+  
+  
   font-weight: 700;
   font-size: 1.35rem;
   color: var(--primary-color);
@@ -91,6 +99,10 @@ nav {
 .nav-links {
   display: flex;
   align-items: center;
+
+  
+  
+  
   list-style: none;
   gap: 24px;
 }
@@ -119,6 +131,10 @@ nav {
 }
 
 .nav-links a {
+
+  
+  
+  
   font-weight: 500;
   color: var(--muted-text);
   transition: color 0.2s ease, transform 0.2s ease;

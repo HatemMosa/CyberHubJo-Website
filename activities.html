@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore CyberHubJo activities through our dynamic cybersecurity timeline."
+    />
+    <title>CyberHubJo | Activities</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <a class="logo" href="index.html">CyberHubJo</a>
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="activities.html" aria-current="page">Activities</a></li>
+            <li><a href="resources.html">Useful Resources</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <div>
+            <h1>Activities &amp; Impact</h1>
+            <p>
+              From community events to collaborative research sprints, our
+              initiatives strengthen Jordan&apos;s cybersecurity ecosystem and
+              nurture future-ready talent.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Milestones Timeline</h2>
+        <p class="section-intro">
+          Discover the journey of CyberHubJo through highlights of trainings,
+          partnerships, and strategic projects across the Kingdom.
+        </p>
+        <div class="timeline" role="list">
+          <article class="timeline-item" role="listitem">
+            <span>Q1 2024</span>
+            <h3>CyberHubJo officially launched</h3>
+            <p>
+              Hosted a national kickoff gathering with industry, academia, and
+              government partners to co-design our collaborative agenda.
+            </p>
+          </article>
+
+          <article class="timeline-item" role="listitem">
+            <span>Q2 2024</span>
+            <h3>University cybersecurity bootcamps</h3>
+            <p>
+              Delivered immersive training for 150 students across three
+              Jordanian universities, focusing on incident response and secure
+              development practices.
+            </p>
+          </article>
+
+          <article class="timeline-item" role="listitem">
+            <span>Q3 2024</span>
+            <h3>Threat intelligence sharing network</h3>
+            <p>
+              Established a trusted intelligence circle with 12 enterprises to
+              exchange timely insights on regional threat actors and TTPs.
+            </p>
+          </article>
+
+          <article class="timeline-item" role="listitem">
+            <span>Q4 2024</span>
+            <h3>Public sector resilience workshops</h3>
+            <p>
+              Partnered with key ministries to assess critical infrastructure
+              risks and design policy-aligned mitigation roadmaps.
+            </p>
+          </article>
+
+          <article class="timeline-item" role="listitem">
+            <span>2025 &amp; beyond</span>
+            <h3>Regional innovation challenges</h3>
+            <p>
+              Launching applied research competitions and incubator programs to
+              fast-track cybersecurity solutions across MENA markets.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        © <span id="year"></span> CyberHubJo. All rights reserved. Reach us at
+        <a href="mailto:info@cyberhubjo.com">info@cyberhubjo.com</a>.
+      </p>
+    </footer>
+
+    <script>
+      const yearElement = document.getElementById('year');
+      if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+      }
+    </script>
+  </body>
+</html>

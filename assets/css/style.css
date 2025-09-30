@@ -30,6 +30,7 @@ body.nav-open {
   overflow: hidden;
 }
 
+
 a {
   color: inherit;
   text-decoration: none;
@@ -64,6 +65,7 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 12px;
+
   font-weight: 700;
   font-size: 1.35rem;
   color: var(--primary-color);
@@ -91,6 +93,7 @@ nav {
 .nav-links {
   display: flex;
   align-items: center;
+
   list-style: none;
   gap: 24px;
 }
@@ -119,6 +122,7 @@ nav {
 }
 
 .nav-links a {
+
   font-weight: 500;
   color: var(--muted-text);
   transition: color 0.2s ease, transform 0.2s ease;
@@ -126,6 +130,7 @@ nav {
 
 .nav-links a:hover,
 .nav-links a:focus {
+
   color: var(--primary-color);
   transform: translateY(-2px);
 }
@@ -137,12 +142,14 @@ nav {
 }
 
 .nav-links a[aria-current='page'] {
+
   color: var(--primary-color);
   font-weight: 600;
   position: relative;
 }
 
 .nav-links a[aria-current='page']::after {
+
   content: '';
   position: absolute;
   left: 0;
@@ -164,6 +171,7 @@ nav {
 .nav-toggle[aria-expanded='true'] span:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
+
 
 main {
   flex: 1;
@@ -226,10 +234,14 @@ main {
     ". founder ."
     "eman amro yasmeen"
     "saleem ebtehal abedlrahman";
+
+  
   justify-items: stretch;
 }
 
 .cards.team-grid .card-founder {
+
+  
   border: 2px solid rgba(255, 193, 7, 0.4);
   box-shadow: 0 20px 40px rgba(13, 71, 161, 0.15);
 }
@@ -262,6 +274,8 @@ main {
   grid-area: abedlrahman;
 }
 
+
+
 .card {
   background: #fff;
   border-radius: var(--border-radius);
@@ -269,6 +283,8 @@ main {
   box-shadow: var(--card-shadow);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
+
 
 .card-header {
   display: flex;
@@ -285,6 +301,8 @@ main {
   box-shadow: 0 8px 20px rgba(13, 71, 161, 0.18);
   flex-shrink: 0;
 }
+
+
 
 .card:hover,
 .card:focus-within {
@@ -316,6 +334,8 @@ main {
   display: inline-block;
   overflow-wrap: anywhere;
 }
+
+
 
 .card p {
   color: var(--muted-text);
@@ -349,6 +369,8 @@ main {
   font-size: 0.75rem;
   color: var(--accent-color);
 }
+
+
 
 .card .links {
   display: flex;
@@ -563,6 +585,7 @@ footer a {
   }
 }
 
+
 @media (max-width: 600px) {
   .card-header {
     flex-direction: column;
@@ -592,6 +615,7 @@ footer a {
       "eman amro"
       "yasmeen saleem"
       "ebtehal abedlrahman";
+
   }
 }
 

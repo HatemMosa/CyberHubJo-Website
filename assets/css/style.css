@@ -698,14 +698,6 @@ footer a {
 @media (max-width: 640px) {
   .cards.team-grid {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "founder"
-      "eman"
-      "amro"
-      "yasmeen"
-      "saleem"
-      "ebtehal"
-      "abedlrahman";
   }
 }
 

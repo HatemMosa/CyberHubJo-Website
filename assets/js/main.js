@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+(function () {
   const yearElement = document.getElementById('year');
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
@@ -77,3 +78,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+      const fragment = document.createDocumentFragment();
+      orderedCards.forEach((card) => {
+        fragment.appendChild(card);
+      });
+
+      teamGrid.innerHTML = '';
+      teamGrid.appendChild(fragment);
+    }
+  }
+});
+})();

@@ -281,9 +281,9 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
-/* FIXED: Team grid layout */
+/* FIXED: Team grid layout - 2 per row on desktop */
 .cards.team-grid {
-  grid-template-columns: repeat(3, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
   justify-content: center;
   justify-items: stretch;
 }
@@ -292,11 +292,8 @@ main {
   width: 100%;
 }
 
-/* Founder card styling - spans all columns and centered */
+/* Founder card styling - distinctive appearance but stays in grid flow */
 .cards.team-grid .team-card--hatem {
-  grid-column: 1 / -1;
-  max-width: min(520px, 100%);
-  justify-self: center;
   border: 2px solid rgba(255, 193, 7, 0.4);
   box-shadow: 0 20px 40px rgba(13, 71, 161, 0.15);
 }
@@ -642,19 +639,11 @@ footer a {
   .cards.team-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  
-  .cards.team-grid .team-card--hatem {
-    grid-column: 1 / -1;
-  }
 }
 
 @media (max-width: 640px) {
   .cards.team-grid {
     grid-template-columns: 1fr;
-  }
-  
-  .cards.team-grid .team-card--hatem {
-    grid-column: 1;
   }
 }
 

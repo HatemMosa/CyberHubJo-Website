@@ -72,6 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
         orderedCards[orderedCards.length - 1].classList.add('team-card--solo');
       }
 
+      const fragment = document.createDocumentFragment();
+
       orderedCards.forEach((card) => {
         teamGrid.appendChild(card);
       });

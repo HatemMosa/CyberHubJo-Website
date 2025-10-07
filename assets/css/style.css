@@ -292,10 +292,36 @@ main {
   width: 100%;
 }
 
-/* Founder card styling - distinctive appearance but stays in grid flow */
+/* Founder card styling - distinctive appearance and always first */
 .cards.team-grid .team-card--hatem {
+  order: -1;
   border: 2px solid rgba(255, 193, 7, 0.4);
   box-shadow: 0 20px 40px rgba(13, 71, 161, 0.15);
+}
+
+/* Randomize order for other team members */
+.cards.team-grid .team-card--eman {
+  order: 1;
+}
+
+.cards.team-grid .team-card--amro {
+  order: 2;
+}
+
+.cards.team-grid .team-card--yasmeen {
+  order: 3;
+}
+
+.cards.team-grid .team-card--saleem {
+  order: 4;
+}
+
+.cards.team-grid .team-card--ebtehal {
+  order: 5;
+}
+
+.cards.team-grid .team-card--abedlrahman {
+  order: 6;
 }
 
 .card {

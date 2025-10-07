@@ -40,25 +40,4 @@
       }
     });
   }
-
-  const teamGrid = document.querySelector('.team-grid');
-  if (teamGrid) {
-    const founderCard = teamGrid.querySelector('.card-founder');
-    if (founderCard) {
-      const otherCards = Array.from(
-        teamGrid.querySelectorAll('.team-card')
-      ).filter((card) => card !== founderCard);
-
-      for (let i = otherCards.length - 1; i > 0; i -= 1) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [otherCards[i], otherCards[j]] = [otherCards[j], otherCards[i]];
-      }
-
-      otherCards.forEach((card) => {
-        teamGrid.appendChild(card);
-      });
-
-      teamGrid.insertBefore(founderCard, teamGrid.firstChild);
-    }
-  }
 })();

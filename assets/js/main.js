@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+(function () {
   const yearElement = document.getElementById('year');
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
@@ -43,13 +44,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const teamGrid = document.querySelector('.team-grid');
   if (teamGrid) {
-    const cards = Array.from(teamGrid.querySelectorAll('.team-card'));
-    const founderCard = cards.find((card) => card.classList.contains('card-founder'));
+    const cardElements = Array.from(teamGrid.children).filter(
+      (node) => node instanceof HTMLElement && node.classList.contains('team-card'),
+    );
 
-    if (founderCard && cards.length > 1) {
-      cards.forEach((card) => card.classList.remove('team-card--solo'));
+    const founderCard = cardElements.find((card) => card.classList.contains('card-founder'));
 
-      const otherCards = cards.filter((card) => card !== founderCard);
+    if (founderCard) {
+      cardElements.forEach((card) => card.classList.remove('team-card--solo'));
+
+      const otherCards = cardElements.filter((card) => card !== founderCard);
 
       for (let i = otherCards.length - 1; i > 0; i -= 1) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -58,21 +62,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const orderedCards = [founderCard];
 
-      const partner = otherCards.shift();
-      if (partner) {
-        orderedCards.push(partner);
+      if (otherCards.length) {
+        orderedCards.push(otherCards.shift());
       }
 
       orderedCards.push(...otherCards);
 
       if (orderedCards.length % 2 !== 0) {
-        const lastCard = orderedCards[orderedCards.length - 1];
-        if (lastCard !== founderCard) {
-          lastCard.classList.add('team-card--solo');
-        }
+        orderedCards[orderedCards.length - 1].classList.add('team-card--solo');
       }
 
-      teamGrid.replaceChildren(...orderedCards);
+      const fragment = document.createDocumentFragment();
+
+      orderedCards.forEach((card) => {
+        teamGrid.appendChild(card);
+      });
     }
   }
 });
+      const fragment = document.createDocumentFragment();
+      orderedCards.forEach((card) => {
+        fragment.appendChild(card);
+      });
+
+      teamGrid.innerHTML = '';
+      teamGrid.appendChild(fragment);
+    }
+  }
+});
+})();

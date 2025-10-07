@@ -300,6 +300,45 @@ main {
 .cards.team-grid .card-founder {
   border: 2px solid rgba(255, 193, 7, 0.4);
   box-shadow: 0 20px 40px rgba(13, 71, 161, 0.15);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-areas:
+    ". founder ."
+    "eman amro yasmeen"
+    "saleem ebtehal abedlrahman";
+  justify-items: stretch;
+}
+
+.cards.team-grid .card-founder {
+  border: 2px solid rgba(255, 193, 7, 0.4);
+  box-shadow: 0 20px 40px rgba(13, 71, 161, 0.15);
+}
+
+.cards.team-grid .team-card--hatem {
+  grid-area: founder;
+}
+
+.cards.team-grid .team-card--eman {
+  grid-area: eman;
+}
+
+.cards.team-grid .team-card--amro {
+  grid-area: amro;
+}
+
+.cards.team-grid .team-card--yasmeen {
+  grid-area: yasmeen;
+}
+
+.cards.team-grid .team-card--saleem {
+  grid-area: saleem;
+}
+
+.cards.team-grid .team-card--ebtehal {
+  grid-area: ebtehal;
+}
+
+.cards.team-grid .team-card--abedlrahman {
+  grid-area: abedlrahman;
 }
 
 .card {
@@ -660,6 +699,17 @@ footer a {
 
   .card .email {
     text-align: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cards.team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "founder founder"
+      "eman amro"
+      "yasmeen saleem"
+      "ebtehal abedlrahman";
   }
 }
 

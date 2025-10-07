@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+
 (function () {
   const yearElement = document.getElementById('year');
   if (yearElement) {
@@ -44,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const teamGrid = document.querySelector('.team-grid');
   if (teamGrid) {
+
     const cardElements = Array.from(teamGrid.children).filter(
       (node) => node instanceof HTMLElement && node.classList.contains('team-card'),
     );
@@ -62,11 +64,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const orderedCards = [founderCard];
 
+
       if (otherCards.length) {
         orderedCards.push(otherCards.shift());
       }
 
       orderedCards.push(...otherCards);
+
 
       if (orderedCards.length % 2 !== 0) {
         orderedCards[orderedCards.length - 1].classList.add('team-card--solo');

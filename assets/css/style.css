@@ -281,8 +281,9 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
+/* FIXED: Team grid layout */
 .cards.team-grid {
-  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, minmax(280px, 1fr));
   justify-content: center;
   justify-items: stretch;
 }
@@ -291,54 +292,13 @@ main {
   width: 100%;
 }
 
-.cards.team-grid .team-card--solo {
+/* Founder card styling - spans all columns and centered */
+.cards.team-grid .team-card--hatem {
   grid-column: 1 / -1;
   max-width: min(520px, 100%);
   justify-self: center;
-}
-
-.cards.team-grid .card-founder {
   border: 2px solid rgba(255, 193, 7, 0.4);
   box-shadow: 0 20px 40px rgba(13, 71, 161, 0.15);
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-template-areas:
-    ". founder ."
-    "eman amro yasmeen"
-    "saleem ebtehal abedlrahman";
-  justify-items: stretch;
-}
-
-.cards.team-grid .card-founder {
-  border: 2px solid rgba(255, 193, 7, 0.4);
-  box-shadow: 0 20px 40px rgba(13, 71, 161, 0.15);
-}
-
-.cards.team-grid .team-card--hatem {
-  grid-area: founder;
-}
-
-.cards.team-grid .team-card--eman {
-  grid-area: eman;
-}
-
-.cards.team-grid .team-card--amro {
-  grid-area: amro;
-}
-
-.cards.team-grid .team-card--yasmeen {
-  grid-area: yasmeen;
-}
-
-.cards.team-grid .team-card--saleem {
-  grid-area: saleem;
-}
-
-.cards.team-grid .team-card--ebtehal {
-  grid-area: ebtehal;
-}
-
-.cards.team-grid .team-card--abedlrahman {
-  grid-area: abedlrahman;
 }
 
 .card {
@@ -577,6 +537,14 @@ main {
   color: var(--muted-text);
 }
 
+.resources-section ul li {
+  margin-bottom: 12px;
+}
+
+.resources-section ul li:last-child {
+  margin-bottom: 0;
+}
+
 .contact-wrapper {
   max-width: 720px;
   margin: 0 auto;
@@ -670,6 +638,26 @@ footer a {
   }
 }
 
+@media (max-width: 1024px) {
+  .cards.team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .cards.team-grid .team-card--hatem {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .cards.team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cards.team-grid .team-card--hatem {
+    grid-column: 1;
+  }
+}
+
 @media (max-width: 480px) {
   nav {
     left: 16px;
@@ -699,24 +687,6 @@ footer a {
 
   .card .email {
     text-align: center;
-  }
-}
-
-
-@media (max-width: 1024px) {
-  .cards.team-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-areas:
-      "founder founder"
-      "eman amro"
-      "yasmeen saleem"
-      "ebtehal abedlrahman";
-  }
-}
-
-@media (max-width: 640px) {
-  .cards.team-grid {
-    grid-template-columns: 1fr;
   }
 }
 

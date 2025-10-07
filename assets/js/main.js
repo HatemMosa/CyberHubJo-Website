@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+(function () {
   const yearElement = document.getElementById('year');
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
@@ -40,44 +40,4 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-
-  const teamGrid = document.querySelector('.team-grid');
-  if (teamGrid) {
-    const cardElements = Array.from(teamGrid.children).filter(
-      (node) => node instanceof HTMLElement && node.classList.contains('team-card'),
-    );
-
-    const founderCard = cardElements.find((card) => card.classList.contains('card-founder'));
-
-    if (founderCard) {
-      cardElements.forEach((card) => card.classList.remove('team-card--solo'));
-
-      const otherCards = cardElements.filter((card) => card !== founderCard);
-
-      for (let i = otherCards.length - 1; i > 0; i -= 1) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [otherCards[i], otherCards[j]] = [otherCards[j], otherCards[i]];
-      }
-
-      const orderedCards = [founderCard];
-
-      if (otherCards.length) {
-        orderedCards.push(otherCards.shift());
-      }
-
-      orderedCards.push(...otherCards);
-
-      if (orderedCards.length % 2 !== 0) {
-        orderedCards[orderedCards.length - 1].classList.add('team-card--solo');
-      }
-
-      const fragment = document.createDocumentFragment();
-      orderedCards.forEach((card) => {
-        fragment.appendChild(card);
-      });
-
-      teamGrid.innerHTML = '';
-      teamGrid.appendChild(fragment);
-    }
-  }
-});
+})();

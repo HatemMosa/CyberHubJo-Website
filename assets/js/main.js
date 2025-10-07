@@ -46,7 +46,30 @@ function updateFooterYear() {
   }
 }
 
+function randomizeTeamOrder() {
+  const teamCards = document.querySelectorAll('.team-card:not(.team-card--hatem)');
+  
+  if (teamCards.length === 0) {
+    return;
+  }
+
+  // Create array of numbers from 1 to number of team members
+  const orders = Array.from({ length: teamCards.length }, (_, i) => i + 1);
+  
+  // Shuffle the array using Fisher-Yates algorithm
+  for (let i = orders.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [orders[i], orders[j]] = [orders[j], orders[i]];
+  }
+  
+  // Apply random order to each team member
+  teamCards.forEach((card, index) => {
+    card.style.order = orders[index];
+  });
+}
+
 window.addEventListener('DOMContentLoaded', () => {
   updateFooterYear();
   initNavigation();
+  randomizeTeamOrder();
 });

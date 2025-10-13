@@ -1,1 +1,36 @@
-Readme
+# CyberHubJo Website
+
+A static website for CyberHubJo featuring dedicated pages for the organisation's vision, team, publications, activities, media gallery, resources, and contact information.
+
+## Pages
+
+- **Home** – Overview of CyberHubJo along with vision and mission statements.
+- **Our Team** – Profiles of seven core contributors with contact links.
+- **Publications** – Placeholder page noting that publications are to be announced.
+- **Activities** – Timeline highlighting milestones and community impact.
+- **Gallery** – Video highlights paired with LinkedIn context and live images from the public CyberHubJo album.
+- **Useful Resources** – Curated list of helpful articles and media content.
+- **Contact Us** – Primary contact email for enquiries.
+
+## Project Structure
+
+```
+assets/
+  css/
+    style.css   # Shared styling for all pages
+  js/
+    main.js     # Responsive navigation, footer helpers, and gallery album loader
+index.html       # Home page
+team.html        # Team profiles
+publications.html# Publications placeholder
+activities.html  # Activities timeline
+gallery.html     # Media highlights with LinkedIn links and album feed
+resources.html   # Useful resources
+contact.html     # Contact details
+```
+
+## Getting Started
+
+Open any of the HTML files directly in a browser, or run a lightweight local server (for example `python3 -m http.server`) and navigate to `http://localhost:8000/`.
+
+All navigation links are relative, so the pages work out of the box without additional configuration.

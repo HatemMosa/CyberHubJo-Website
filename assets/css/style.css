@@ -328,32 +328,37 @@ main {
 .photo-card {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  text-align: left;
 }
 
-.photo-card figure {
-  margin: 0;
-}
-
-.photo-card a {
+.photo-card__trigger {
   display: block;
+  width: 100%;
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
   border-radius: calc(var(--border-radius) - 4px);
   overflow: hidden;
+  box-shadow: 0 12px 24px rgba(13, 71, 161, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.photo-card img {
+.photo-card__trigger:hover,
+.photo-card__trigger:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(13, 71, 161, 0.18);
+}
+
+.photo-card__trigger:focus-visible {
+  outline: 3px solid rgba(13, 71, 161, 0.35);
+  outline-offset: 4px;
+}
+
+.photo-card__trigger img {
   width: 100%;
-  border-radius: calc(var(--border-radius) - 4px);
-  box-shadow: 0 12px 24px rgba(13, 71, 161, 0.12);
+  display: block;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-}
-
-.photo-card figcaption {
-  margin-top: 8px;
-  color: var(--muted-text);
-  font-size: 0.95rem;
 }
 
 .album-status {
@@ -364,6 +369,80 @@ main {
   border-radius: var(--border-radius);
   background: rgba(13, 71, 161, 0.06);
   margin: 0;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(10, 25, 58, 0.78);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1200;
+}
+
+.modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+}
+
+.modal__inner {
+  position: relative;
+  max-width: min(960px, 90vw);
+  width: 100%;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(6, 19, 46, 0.35);
+  background: #000;
+}
+
+.modal__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.modal__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: none;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.modal__close:hover,
+.modal__close:focus-visible {
+  background: rgba(13, 71, 161, 0.85);
+  transform: scale(1.05);
+}
+
+.modal__close:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.7);
+  outline-offset: 3px;
 }
 
 .media-card__meta {

@@ -173,75 +173,67 @@
         </p>
         <div class="cards media-grid photo-grid" role="list">
           <article class="card photo-card" role="listitem">
-            <figure>
-              <a
-                href="https://files.cyberhubjo.com/img/Amro-ICTCS25%20(1).jpg"
-                target="_blank"
-                rel="noopener"
-                aria-label="Open full-size image: Amro Saleh presenting at ICTCS25"
-              >
-                <img
-                  src="https://files.cyberhubjo.com/img/Amro-ICTCS25%20(1).jpg"
-                  alt="Amro Saleh presenting at ICTCS25"
-                  loading="lazy"
-                />
-              </a>
-              <figcaption>Amro Saleh presenting at ICTCS25.</figcaption>
-            </figure>
+            <button
+              type="button"
+              class="photo-card__trigger"
+              data-image="https://files.cyberhubjo.com/img/Amro-ICTCS25%20(1).jpg"
+              data-alt="Amro Saleh presenting at ICTCS25"
+              aria-label="View full-size photo of Amro Saleh presenting at ICTCS25"
+            >
+              <img
+                src="https://files.cyberhubjo.com/img/Amro-ICTCS25%20(1).jpg"
+                alt="Amro Saleh presenting at ICTCS25"
+                loading="lazy"
+              />
+            </button>
           </article>
 
           <article class="card photo-card" role="listitem">
-            <figure>
-              <a
-                href="https://files.cyberhubjo.com/img/Amro-ICTCS25.jpg"
-                target="_blank"
-                rel="noopener"
-                aria-label="Open full-size image: CyberHubJo team at ICTCS25"
-              >
-                <img
-                  src="https://files.cyberhubjo.com/img/Amro-ICTCS25.jpg"
-                  alt="CyberHubJo team at ICTCS25"
-                  loading="lazy"
-                />
-              </a>
-              <figcaption>CyberHubJo team moments at ICTCS25.</figcaption>
-            </figure>
+            <button
+              type="button"
+              class="photo-card__trigger"
+              data-image="https://files.cyberhubjo.com/img/Amro-ICTCS25.jpg"
+              data-alt="CyberHubJo team at ICTCS25"
+              aria-label="View full-size CyberHubJo team photo from ICTCS25"
+            >
+              <img
+                src="https://files.cyberhubjo.com/img/Amro-ICTCS25.jpg"
+                alt="CyberHubJo team at ICTCS25"
+                loading="lazy"
+              />
+            </button>
           </article>
 
           <article class="card photo-card" role="listitem">
-            <figure>
-              <a
-                href="https://files.cyberhubjo.com/img/Hatem-ICTCS25%20(1).jpg"
-                target="_blank"
-                rel="noopener"
-                aria-label="Open full-size image: Hatem Mosa speaking at ICTCS25"
-              >
-                <img
-                  src="https://files.cyberhubjo.com/img/Hatem-ICTCS25%20(1).jpg"
-                  alt="Hatem Mosa speaking at ICTCS25"
-                  loading="lazy"
-                />
-              </a>
-              <figcaption>Hatem Mosa sharing CyberHubJo insights.</figcaption>
-            </figure>
+            <button
+              type="button"
+              class="photo-card__trigger"
+              data-image="https://files.cyberhubjo.com/img/Hatem-ICTCS25%20(1).jpg"
+              data-alt="Hatem Mosa speaking at ICTCS25"
+              aria-label="View full-size photo of Hatem Mosa speaking at ICTCS25"
+            >
+              <img
+                src="https://files.cyberhubjo.com/img/Hatem-ICTCS25%20(1).jpg"
+                alt="Hatem Mosa speaking at ICTCS25"
+                loading="lazy"
+              />
+            </button>
           </article>
 
           <article class="card photo-card" role="listitem">
-            <figure>
-              <a
-                href="https://files.cyberhubjo.com/img/Hatem-ICTCS25.jpg"
-                target="_blank"
-                rel="noopener"
-                aria-label="Open full-size image: CyberHubJo founder with attendees"
-              >
-                <img
-                  src="https://files.cyberhubjo.com/img/Hatem-ICTCS25.jpg"
-                  alt="CyberHubJo founder Hatem Mosa with conference attendees"
-                  loading="lazy"
-                />
-              </a>
-              <figcaption>Hatem Mosa with conference attendees.</figcaption>
-            </figure>
+            <button
+              type="button"
+              class="photo-card__trigger"
+              data-image="https://files.cyberhubjo.com/img/Hatem-ICTCS25.jpg"
+              data-alt="CyberHubJo founder Hatem Mosa with conference attendees"
+              aria-label="View full-size photo of Hatem Mosa with conference attendees"
+            >
+              <img
+                src="https://files.cyberhubjo.com/img/Hatem-ICTCS25.jpg"
+                alt="CyberHubJo founder Hatem Mosa with conference attendees"
+                loading="lazy"
+              />
+            </button>
           </article>
         </div>
       </section>
@@ -253,6 +245,16 @@
         <a href="mailto:info@cyberhubjo.com">info@cyberhubjo.com</a>.
       </p>
     </footer>
+
+    <div class="modal" id="photo-modal" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="modal__backdrop" data-modal-close></div>
+      <div class="modal__inner" role="document">
+        <button type="button" class="modal__close" aria-label="Close image" data-modal-close>
+          ×
+        </button>
+        <img src="" alt="" class="modal__image" />
+      </div>
+    </div>
 
     <script src="assets/js/main.js" defer></script>
   </body>

@@ -8,7 +8,7 @@ A static website for CyberHubJo featuring dedicated pages for the organisation's
 - **Our Team** – Profiles of seven core contributors with contact links.
 - **Publications** – Placeholder page noting that publications are to be announced.
 - **Activities** – Timeline highlighting milestones and community impact.
-- **Gallery** – Video highlights paired with LinkedIn context and live images from the public CyberHubJo album.
+- **Gallery** – Video highlights paired with LinkedIn context and curated CyberHubJo event photos.
 - **Useful Resources** – Curated list of helpful articles and media content.
 - **Contact Us** – Primary contact email for enquiries.
 
@@ -19,12 +19,12 @@ assets/
   css/
     style.css   # Shared styling for all pages
   js/
-    main.js     # Responsive navigation, footer helpers, and gallery album loader
+    main.js     # Responsive navigation and footer helpers
 index.html       # Home page
 team.html        # Team profiles
 publications.html# Publications placeholder
 activities.html  # Activities timeline
-gallery.html     # Media highlights with LinkedIn links and album feed
+gallery.html     # Media highlights with LinkedIn links and photo features
 resources.html   # Useful resources
 contact.html     # Contact details
 ```

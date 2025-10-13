@@ -46,30 +46,71 @@ function updateFooterYear() {
   }
 }
 
-function randomizeTeamOrder() {
-  const teamCards = document.querySelectorAll('.team-card:not(.team-card--hatem)');
-  
-  if (teamCards.length === 0) {
+function initPhotoModal() {
+  const modal = document.getElementById('photo-modal');
+  if (!modal) {
     return;
   }
 
-  // Create array of numbers from 1 to number of team members
-  const orders = Array.from({ length: teamCards.length }, (_, i) => i + 1);
-  
-  // Shuffle the array using Fisher-Yates algorithm
-  for (let i = orders.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [orders[i], orders[j]] = [orders[j], orders[i]];
+  const modalImage = modal.querySelector('.modal__image');
+  const closeTriggers = modal.querySelectorAll('[data-modal-close]');
+  const photoButtons = document.querySelectorAll('.photo-card__trigger');
+
+  if (!modalImage || photoButtons.length === 0) {
+    return;
   }
-  
-  // Apply random order to each team member
-  teamCards.forEach((card, index) => {
-    card.style.order = orders[index];
+
+  let lastFocusedElement = null;
+
+  const closeModal = () => {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+      lastFocusedElement.focus();
+    }
+  };
+
+  const openModal = (imageSrc, imageAlt, trigger) => {
+    modalImage.src = imageSrc;
+    modalImage.alt = imageAlt || '';
+    lastFocusedElement = trigger;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    modal.querySelector('.modal__close').focus();
+  };
+
+  photoButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const imageSrc = button.dataset.image;
+      const imageAlt = button.dataset.alt || button.querySelector('img')?.alt || '';
+
+      if (imageSrc) {
+        openModal(imageSrc, imageAlt, button);
+      }
+    });
+  });
+
+  closeTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', closeModal);
+  });
+
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+      closeModal();
+    }
   });
 }
 
 window.addEventListener('DOMContentLoaded', () => {
   updateFooterYear();
   initNavigation();
-  randomizeTeamOrder();
+  initPhotoModal();
 });

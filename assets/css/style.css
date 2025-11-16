@@ -255,6 +255,25 @@ main {
   padding: 64px 24px;
 }
 
+.section-header {
+  max-width: var(--max-width);
+  margin: 0 auto 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.section-header h2,
+.section-header p.section-intro {
+  text-align: left;
+}
+
+.last-updated {
+  font-size: 0.95rem;
+  color: var(--muted-text);
+}
+
 .section h2 {
   font-size: clamp(2rem, 3.5vw, 2.6rem);
   color: var(--primary-color);
@@ -297,6 +316,59 @@ main {
 .cards.team-grid .card-founder {
   border: 2px solid rgba(255, 193, 7, 0.4);
   box-shadow: 0 20px 40px rgba(13, 71, 161, 0.15);
+}
+
+.stats-grid {
+  max-width: var(--max-width);
+  margin: 0 auto 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.stats-grid--years {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.stats-grid--totals {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: var(--border-radius);
+  padding: 24px;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stat-card p {
+  margin: 0;
+  color: var(--muted-text);
+}
+
+.stat-card .stat-value {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.data-banner {
+  max-width: var(--max-width);
+  margin: 0 auto 32px;
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--primary-color);
+  padding: 16px 20px;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.data-banner--error {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #b91c1c;
 }
 
 @media (min-width: 680px) {

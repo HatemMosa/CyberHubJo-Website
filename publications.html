@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="CyberHubJo publications, case studies, and research will be announced soon."
+      content="CyberHubJo research metrics aggregated from OpenAlex across all team members."
     />
     <title>CyberHubJo | Publications</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,7 +16,7 @@
     />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-  <body>
+  <body class="page-publications">
     <header>
       <div class="nav-container">
         <a class="brand" href="index.html">
@@ -60,26 +60,57 @@
           <div>
             <h1>Publications</h1>
             <p>
-              Our research papers, case studies, and insight reports will be
-              shared soon. Stay tuned for updates as we finalize our inaugural
-              publications.
+              These live metrics track every publication attributed to CyberHubJo
+              researchers. Data is sourced directly from the OpenAlex API and
+              refreshed automatically when you load this page.
             </p>
           </div>
         </div>
       </section>
 
-      <section class="section">
-        <div class="cards">
-          <article class="card" aria-live="polite">
-            <h2>Coming Soon</h2>
-            <p>
-              The CyberHubJo publications library is in development. We are
-              curating thought leadership and collaborative research to support
-              practitioners, policymakers, and learners.
-            </p>
-            <p><strong>To be announced.</strong></p>
+      <section class="section publication-dashboard" aria-live="polite">
+        <div class="section-header">
+          <p class="last-updated">
+            Last updated: <span id="last-updated">--</span>
+          </p>
+        </div>
+
+        <div id="publication-loading" class="data-banner" role="status">
+          Fetching the latest publication metrics…
+        </div>
+        <div
+          id="publication-error"
+          class="data-banner data-banner--error"
+          role="alert"
+          hidden
+        ></div>
+
+        <div class="stats-grid stats-grid--years">
+          <article class="stat-card">
+            <p>2025 Publications</p>
+            <p id="publications-2025" class="stat-value">--</p>
+          </article>
+          <article class="stat-card">
+            <p>2024 Publications</p>
+            <p id="publications-2024" class="stat-value">--</p>
+          </article>
+          <article class="stat-card">
+            <p>2023 Publications</p>
+            <p id="publications-2023" class="stat-value">--</p>
           </article>
         </div>
+
+        <div class="stats-grid stats-grid--totals">
+          <article class="stat-card">
+            <p>Total Publications</p>
+            <p id="total-publications" class="stat-value">--</p>
+          </article>
+          <article class="stat-card">
+            <p>Total Citations</p>
+            <p id="total-citations" class="stat-value">--</p>
+          </article>
+        </div>
+
       </section>
     </main>
 

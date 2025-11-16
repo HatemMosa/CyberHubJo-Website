@@ -1,1 +1,40 @@
-Readme
+# CyberHubJo Website
+
+A static website for CyberHubJo featuring dedicated pages for the organisation's vision, team, publications, activities, media gallery, resources, and contact information.
+
+## Pages
+
+- **Home** – Overview of CyberHubJo along with vision and mission statements.
+- **Our Team** – Profiles of seven core contributors with contact links.
+- **Publications** – Live OpenAlex dashboard aggregating CyberHubJo member publications, citations, and yearly output.
+- **Activities** – Timeline highlighting milestones and community impact.
+- **Gallery** – Video highlights paired with LinkedIn context and curated CyberHubJo event photos.
+- **Useful Resources** – Curated list of helpful articles and media content.
+- **Contact Us** – Primary contact email for enquiries.
+
+## Project Structure
+
+```
+assets/
+  css/
+    style.css   # Shared styling for all pages
+  js/
+    main.js     # Shared navigation, gallery modal, and publications dashboard logic
+index.html       # Home page
+team.html        # Team profiles
+publications.html# OpenAlex-powered research dashboard
+activities.html  # Activities timeline
+gallery.html     # Media highlights with LinkedIn links and photo features
+resources.html   # Useful resources
+contact.html     # Contact details
+```
+
+## Getting Started
+
+Open any of the HTML files directly in a browser, or run a lightweight local server (for example `python3 -m http.server`) and navigate to `http://localhost:8000/`.
+
+All navigation links are relative, so the pages work out of the box without additional configuration.
+
+## Publications data
+
+The publications dashboard pulls live data from the [OpenAlex](https://openalex.org) API for every CyberHubJo researcher configured in `assets/js/main.js`. Each request includes `info@cyberhubjo.com` as the contact email per OpenAlex requirements. Update the `OPENALEX_CONFIG.authors` array to add or remove members, and the dashboard will automatically recalculate publication counts, citation totals, publication types, and yearly trends on the next page load.

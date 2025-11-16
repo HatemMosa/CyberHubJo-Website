@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CyberHubJo research metrics aggregated from OpenAlex across all team members."
+    />
+    <title>CyberHubJo | Publications</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body class="page-publications">
+    <header>
+      <div class="nav-container">
+        <a class="brand" href="index.html">
+          <img
+            src="https://i.ibb.co/TMT9mzGX/Logo.jpg"
+            alt="CyberHubJo logo"
+            class="brand-logo"
+            width="64"
+            height="36"
+          />
+          <span class="brand-name">CyberHubJo</span>
+        </a>
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          aria-controls="primary-navigation"
+          type="button"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav aria-label="Primary">
+          <ul class="nav-links" id="primary-navigation">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li><a href="publications.html" aria-current="page">Publications</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="resources.html">Useful Resources</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <div>
+            <h1>Publications</h1>
+            <p>
+              These live metrics track every publication attributed to CyberHubJo
+              researchers. Data is sourced directly from the OpenAlex API and
+              refreshed automatically when you load this page.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section publication-dashboard" aria-live="polite">
+        <div class="section-header">
+          <div>
+            <h2>Research Impact Dashboard</h2>
+            <p class="section-intro">
+              Aggregated publications from our team members across conferences,
+              journals, workshops, and other venues.
+            </p>
+          </div>
+          <p class="last-updated">
+            Last updated: <span id="last-updated">--</span>
+          </p>
+        </div>
+
+        <div id="publication-loading" class="data-banner" role="status">
+          Fetching the latest publication metrics…
+        </div>
+        <div
+          id="publication-error"
+          class="data-banner data-banner--error"
+          role="alert"
+          hidden
+        ></div>
+
+        <div class="stats-grid">
+          <article class="stat-card">
+            <p>Total Publications</p>
+            <p id="total-publications" class="stat-value">--</p>
+          </article>
+          <article class="stat-card">
+            <p>Total Citations</p>
+            <p id="total-citations" class="stat-value">--</p>
+          </article>
+          <article class="stat-card">
+            <p>Average Citations</p>
+            <p id="average-citations" class="stat-value">--</p>
+          </article>
+          <article class="stat-card">
+            <p>2025 Publications</p>
+            <p id="publications-2025" class="stat-value">--</p>
+          </article>
+          <article class="stat-card">
+            <p>2024 Publications</p>
+            <p id="publications-2024" class="stat-value">--</p>
+          </article>
+          <article class="stat-card">
+            <p>2023 Publications</p>
+            <p id="publications-2023" class="stat-value">--</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <h2>Publication Types</h2>
+            <p class="section-intro">
+              A breakdown of the venues and output formats authored by
+              CyberHubJo members.
+            </p>
+          </div>
+        </div>
+        <ul id="type-list" class="type-list"></ul>
+        <p id="types-empty" class="empty-state" hidden>
+          Publication types will appear here once data is available.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <h2>Publications per Year</h2>
+            <p class="section-intro">
+              Tracking our publishing momentum across the years.
+            </p>
+          </div>
+        </div>
+        <div class="table-wrapper">
+          <table class="year-table" aria-describedby="yearly-empty">
+            <thead>
+              <tr>
+                <th scope="col">Year</th>
+                <th scope="col">Publications</th>
+                <th scope="col">Citations</th>
+              </tr>
+            </thead>
+            <tbody id="yearly-body"></tbody>
+          </table>
+          <p id="yearly-empty" class="empty-state" hidden>
+            Publication history will display here after the first successful
+            OpenAlex request.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        © <span id="year"></span> CyberHubJo. All rights reserved. Reach us at
+        <a href="mailto:info@cyberhubjo.com">info@cyberhubjo.com</a>.
+      </p>
+    </footer>
+
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>

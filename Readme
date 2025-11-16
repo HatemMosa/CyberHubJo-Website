@@ -6,7 +6,7 @@ A static website for CyberHubJo featuring dedicated pages for the organisation's
 
 - **Home** – Overview of CyberHubJo along with vision and mission statements.
 - **Our Team** – Profiles of seven core contributors with contact links.
-- **Publications** – Live OpenAlex dashboard aggregating CyberHubJo member publications, citations, and yearly output.
+- **Publications** – Live OpenAlex dashboard aggregating CyberHubJo member publications and citations.
 - **Activities** – Timeline highlighting milestones and community impact.
 - **Gallery** – Video highlights paired with LinkedIn context and curated CyberHubJo event photos.
 - **Useful Resources** – Curated list of helpful articles and media content.
@@ -37,4 +37,4 @@ All navigation links are relative, so the pages work out of the box without addi
 
 ## Publications data
 
-The publications dashboard pulls live data from the [OpenAlex](https://openalex.org) API for every CyberHubJo researcher configured in `assets/js/main.js`. Each request includes `info@cyberhubjo.com` as the contact email per OpenAlex requirements. Update the `OPENALEX_CONFIG.authors` array to add or remove members, and the dashboard will automatically recalculate publication counts, citation totals, publication types, and yearly trends on the next page load.
+The publications dashboard pulls live data from the [OpenAlex](https://openalex.org) API for every CyberHubJo researcher configured in `assets/js/main.js`. Each request includes `info@cyberhubjo.com` as the contact email per OpenAlex requirements. Update the `OPENALEX_CONFIG.authors` array to add or remove members, and the dashboard will automatically recalculate publication counts, highlight cards, and total citations on the next page load.

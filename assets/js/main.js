@@ -10,13 +10,10 @@ const OPENALEX_CONFIG = {
     { name: 'AbedlRahman Almodawar', id: 'A5093711030' },
     { name: 'Yasmeen Alslman', id: 'A5023891726' }
   ],
-  highlightYears: [2025, 2024, 2023],
-  maxYearRows: 12,
-  chartYearSpan: 10
+  highlightYears: [2025, 2024, 2023]
 };
 
 const publicationNumberFormatter = new Intl.NumberFormat('en-US');
-let publicationsChartInstance = null;
 
 function initNavigation() {
   const navToggle = document.querySelector('.nav-toggle');
@@ -218,35 +215,6 @@ async function loadAllOpenAlexWorks() {
   return Array.from(workMap.values());
 }
 
-function determineTypeLabel(work) {
-  const candidates = [work?.type, work?.type_crossref, work?.primary_location?.source?.type];
-  const value = candidates.find((item) => typeof item === 'string' && item.trim().length > 0);
-
-  if (!value) {
-    return 'Journal Papers';
-  }
-
-  const normalised = value.toLowerCase();
-  if (normalised.includes('journal')) return 'Journal Articles';
-  if (normalised.includes('conference') || normalised.includes('proceeding')) return 'Conference Papers';
-  if (normalised.includes('book')) return 'Books & Chapters';
-  if (normalised.includes('thesis')) return 'Theses';
-  if (normalised.includes('report')) return 'Reports';
-  return 'Journal Papers';
-}
-
-function summariseTypes(works) {
-  const counts = new Map();
-  works.forEach((work) => {
-    const label = determineTypeLabel(work);
-    counts.set(label, (counts.get(label) ?? 0) + 1);
-  });
-
-  return Array.from(counts.entries())
-    .map(([label, count]) => ({ label, count }))
-    .sort((a, b) => b.count - a.count);
-}
-
 function aggregateYearMetrics(works) {
   return works.reduce((acc, work) => {
     const year = Number(work?.publication_year);
@@ -286,133 +254,6 @@ function updateHighlightCards(yearMetrics) {
   });
 }
 
-function renderTypeList(typeSummary) {
-  const list = document.getElementById('type-list');
-  const emptyState = document.getElementById('types-empty');
-  if (!list || !emptyState) {
-    return;
-  }
-
-  list.innerHTML = '';
-
-  if (!typeSummary.length) {
-    emptyState.hidden = false;
-    return;
-  }
-
-  emptyState.hidden = true;
-  typeSummary.forEach((item) => {
-    const li = document.createElement('li');
-    const label = document.createElement('span');
-    label.textContent = item.label;
-    const value = document.createElement('strong');
-    value.textContent = publicationNumberFormatter.format(item.count);
-    li.appendChild(label);
-    li.appendChild(value);
-    list.appendChild(li);
-  });
-}
-
-function renderYearTable(yearMetrics) {
-  const tbody = document.getElementById('yearly-body');
-  const emptyState = document.getElementById('yearly-empty');
-  if (!tbody || !emptyState) {
-    return;
-  }
-
-  tbody.innerHTML = '';
-  const entries = Array.from(yearMetrics.entries()).sort((a, b) => b[0] - a[0]);
-
-  if (!entries.length) {
-    emptyState.hidden = false;
-    return;
-  }
-
-  emptyState.hidden = true;
-  entries.slice(0, OPENALEX_CONFIG.maxYearRows).forEach(([year, data]) => {
-    const row = document.createElement('tr');
-    const yearCell = document.createElement('td');
-    yearCell.textContent = year;
-    const pubCell = document.createElement('td');
-    pubCell.textContent = publicationNumberFormatter.format(data.publications ?? 0);
-    const citationCell = document.createElement('td');
-    citationCell.textContent = publicationNumberFormatter.format(data.citations ?? 0);
-    row.appendChild(yearCell);
-    row.appendChild(pubCell);
-    row.appendChild(citationCell);
-    tbody.appendChild(row);
-  });
-}
-
-function renderPublicationsChart(yearMetrics) {
-  const canvas = document.getElementById('publications-chart');
-  const emptyState = document.getElementById('publications-chart-empty');
-
-  if (!canvas || !emptyState) {
-    return;
-  }
-
-  const entries = Array.from(yearMetrics.entries())
-    .filter(([year]) => Number.isFinite(year))
-    .sort((a, b) => a[0] - b[0])
-    .slice(-OPENALEX_CONFIG.chartYearSpan);
-
-  if (!entries.length || typeof window.Chart === 'undefined') {
-    canvas.hidden = true;
-    emptyState.hidden = false;
-    return;
-  }
-
-  emptyState.hidden = true;
-  canvas.hidden = false;
-
-  const labels = entries.map(([year]) => year);
-  const dataPoints = entries.map(([, data]) => data.publications ?? 0);
-
-  if (publicationsChartInstance) {
-    publicationsChartInstance.destroy();
-  }
-
-  publicationsChartInstance = new Chart(canvas.getContext('2d'), {
-    type: 'line',
-    data: {
-      labels,
-      datasets: [
-        {
-          label: 'Publications',
-          data: dataPoints,
-          borderColor: '#2563eb',
-          backgroundColor: 'rgba(37, 99, 235, 0.15)',
-          borderWidth: 3,
-          tension: 0.35,
-          fill: true,
-          pointRadius: 4,
-          pointBackgroundColor: '#1d4ed8'
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      interaction: { intersect: false, mode: 'index' },
-      plugins: {
-        legend: { display: false }
-      },
-      scales: {
-        x: {
-          ticks: { color: '#475569' },
-          grid: { color: 'rgba(148, 163, 184, 0.25)' }
-        },
-        y: {
-          beginAtZero: true,
-          ticks: { color: '#475569' },
-          grid: { color: 'rgba(148, 163, 184, 0.25)' }
-        }
-      }
-    }
-  });
-}
-
 async function initPublicationsDashboard() {
   if (!document.body.classList.contains('page-publications')) {
     return;
@@ -431,13 +272,8 @@ async function initPublicationsDashboard() {
 
     const totalCitations = works.reduce((sum, work) => sum + Number(work?.cited_by_count ?? 0), 0);
     const yearMetrics = aggregateYearMetrics(works);
-    const typeSummary = summariseTypes(works);
-
     updateHeadlineMetrics(works, totalCitations);
     updateHighlightCards(yearMetrics);
-    renderTypeList(typeSummary);
-    renderYearTable(yearMetrics);
-    renderPublicationsChart(yearMetrics);
 
     if (lastUpdated) {
       lastUpdated.textContent = new Intl.DateTimeFormat('en-GB', {

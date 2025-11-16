@@ -355,37 +355,6 @@ main {
   color: var(--primary-color);
 }
 
-.chart-card {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  background: #fff;
-  border-radius: var(--border-radius);
-  box-shadow: var(--card-shadow);
-  padding: clamp(20px, 3vw, 32px);
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.chart-card__header h3 {
-  margin-bottom: 6px;
-}
-
-.chart-card__header p {
-  color: var(--muted-text);
-  margin: 0;
-}
-
-.chart-card__canvas {
-  position: relative;
-  min-height: 320px;
-}
-
-#publications-chart {
-  width: 100%;
-  height: 100%;
-}
-
 .data-banner {
   max-width: var(--max-width);
   margin: 0 auto 32px;
@@ -400,81 +369,6 @@ main {
   background: rgba(239, 68, 68, 0.08);
   border-color: rgba(239, 68, 68, 0.4);
   color: #b91c1c;
-}
-
-.type-list {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
-  max-width: var(--max-width);
-  margin: 0 auto;
-}
-
-.type-list li {
-  background: #fff;
-  border-radius: var(--border-radius);
-  padding: 18px 20px;
-  box-shadow: var(--card-shadow);
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 12px;
-  font-weight: 500;
-  color: var(--primary-color);
-}
-
-.type-list li span {
-  font-size: 1.1rem;
-  color: var(--muted-text);
-}
-
-.empty-state {
-  text-align: center;
-  color: var(--muted-text);
-  margin-top: 16px;
-}
-
-.table-wrapper {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  background: #fff;
-  border-radius: var(--border-radius);
-  box-shadow: var(--card-shadow);
-  overflow-x: auto;
-}
-
-.year-table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 320px;
-}
-
-.year-table th,
-.year-table td {
-  padding: 16px 20px;
-  text-align: left;
-}
-
-.year-table thead {
-  background: rgba(13, 71, 161, 0.05);
-}
-
-.year-table tbody tr:nth-child(even) {
-  background: rgba(148, 163, 184, 0.08);
-}
-
-.year-table tbody tr:hover {
-  background: rgba(37, 99, 235, 0.08);
-}
-
-.year-table th {
-  font-weight: 600;
-  color: var(--primary-color);
-}
-
-.year-table td {
-  color: var(--muted-text);
 }
 
 @media (min-width: 680px) {

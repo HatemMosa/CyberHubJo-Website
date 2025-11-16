@@ -118,61 +118,6 @@
           </article>
         </div>
 
-        <div class="chart-card">
-          <div class="chart-card__header">
-            <h3>Publications Trend</h3>
-            <p>Rolling publication count for the past decade.</p>
-          </div>
-          <div class="chart-card__canvas">
-            <canvas id="publications-chart" role="img" aria-label="Publications per year chart"></canvas>
-            <p id="publications-chart-empty" class="empty-state" hidden>
-              Publication trends will display once OpenAlex data is available.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-header">
-          <div>
-            <h2>Publication Types</h2>
-            <p class="section-intro">
-              A breakdown of the venues and output formats authored by
-              CyberHubJo members.
-            </p>
-          </div>
-        </div>
-        <ul id="type-list" class="type-list"></ul>
-        <p id="types-empty" class="empty-state" hidden>
-          Publication types will appear here once data is available.
-        </p>
-      </section>
-
-      <section class="section">
-        <div class="section-header">
-          <div>
-            <h2>Publications per Year</h2>
-            <p class="section-intro">
-              Tracking our publishing momentum across the years.
-            </p>
-          </div>
-        </div>
-        <div class="table-wrapper">
-          <table class="year-table" aria-describedby="yearly-empty">
-            <thead>
-              <tr>
-                <th scope="col">Year</th>
-                <th scope="col">Publications</th>
-                <th scope="col">Citations</th>
-              </tr>
-            </thead>
-            <tbody id="yearly-body"></tbody>
-          </table>
-          <p id="yearly-empty" class="empty-state" hidden>
-            Publication history will display here after the first successful
-            OpenAlex request.
-          </p>
-        </div>
       </section>
     </main>
 
@@ -183,7 +128,6 @@
       </p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" integrity="sha256-JAyTDIrS9KuX3sI5OGucs5cjox96D65gis6pZeRAgvY=" crossorigin="anonymous"></script>
     <script src="assets/js/main.js" defer></script>
   </body>
 </html>

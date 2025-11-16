@@ -11,14 +11,12 @@ const OPENALEX_CONFIG = {
     { name: 'Yasmeen Alslman', id: 'A5023891726' }
   ],
   highlightYears: [2025, 2024, 2023],
-  maxYearRows: 12
+  maxYearRows: 12,
+  chartYearSpan: 10
 };
 
 const publicationNumberFormatter = new Intl.NumberFormat('en-US');
-const citationAverageFormatter = new Intl.NumberFormat('en-US', {
-  minimumFractionDigits: 1,
-  maximumFractionDigits: 1
-});
+let publicationsChartInstance = null;
 
 function initNavigation() {
   const navToggle = document.querySelector('.nav-toggle');
@@ -267,7 +265,6 @@ function aggregateYearMetrics(works) {
 function updateHeadlineMetrics(works, totalCitations) {
   const totalPublicationsEl = document.getElementById('total-publications');
   const totalCitationsEl = document.getElementById('total-citations');
-  const averageCitationsEl = document.getElementById('average-citations');
 
   if (totalPublicationsEl) {
     totalPublicationsEl.textContent = publicationNumberFormatter.format(works.length);
@@ -275,13 +272,6 @@ function updateHeadlineMetrics(works, totalCitations) {
 
   if (totalCitationsEl) {
     totalCitationsEl.textContent = publicationNumberFormatter.format(totalCitations);
-  }
-
-  if (averageCitationsEl) {
-    const average = works.length ? totalCitations / works.length : 0;
-    averageCitationsEl.textContent = works.length
-      ? citationAverageFormatter.format(average)
-      : '0.0';
   }
 }
 
@@ -354,6 +344,75 @@ function renderYearTable(yearMetrics) {
   });
 }
 
+function renderPublicationsChart(yearMetrics) {
+  const canvas = document.getElementById('publications-chart');
+  const emptyState = document.getElementById('publications-chart-empty');
+
+  if (!canvas || !emptyState) {
+    return;
+  }
+
+  const entries = Array.from(yearMetrics.entries())
+    .filter(([year]) => Number.isFinite(year))
+    .sort((a, b) => a[0] - b[0])
+    .slice(-OPENALEX_CONFIG.chartYearSpan);
+
+  if (!entries.length || typeof window.Chart === 'undefined') {
+    canvas.hidden = true;
+    emptyState.hidden = false;
+    return;
+  }
+
+  emptyState.hidden = true;
+  canvas.hidden = false;
+
+  const labels = entries.map(([year]) => year);
+  const dataPoints = entries.map(([, data]) => data.publications ?? 0);
+
+  if (publicationsChartInstance) {
+    publicationsChartInstance.destroy();
+  }
+
+  publicationsChartInstance = new Chart(canvas.getContext('2d'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Publications',
+          data: dataPoints,
+          borderColor: '#2563eb',
+          backgroundColor: 'rgba(37, 99, 235, 0.15)',
+          borderWidth: 3,
+          tension: 0.35,
+          fill: true,
+          pointRadius: 4,
+          pointBackgroundColor: '#1d4ed8'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { intersect: false, mode: 'index' },
+      plugins: {
+        legend: { display: false }
+      },
+      scales: {
+        x: {
+          ticks: { color: '#475569' },
+          grid: { color: 'rgba(148, 163, 184, 0.25)' }
+        },
+        y: {
+          beginAtZero: true,
+          ticks: { color: '#475569' },
+          grid: { color: 'rgba(148, 163, 184, 0.25)' }
+        }
+      }
+    }
+  });
+}
+
 async function initPublicationsDashboard() {
   if (!document.body.classList.contains('page-publications')) {
     return;
@@ -378,6 +437,7 @@ async function initPublicationsDashboard() {
     updateHighlightCards(yearMetrics);
     renderTypeList(typeSummary);
     renderYearTable(yearMetrics);
+    renderPublicationsChart(yearMetrics);
 
     if (lastUpdated) {
       lastUpdated.textContent = new Intl.DateTimeFormat('en-GB', {

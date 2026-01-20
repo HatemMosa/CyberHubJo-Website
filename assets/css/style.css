@@ -805,6 +805,12 @@ body.modal-open {
   height: 22px;
 }
 
+.contact-link--whatsapp img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
 .contact-wrapper a:hover,
 .contact-wrapper a:focus {
   transform: translateY(-2px);

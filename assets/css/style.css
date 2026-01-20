@@ -773,6 +773,13 @@ body.modal-open {
   margin-bottom: 24px;
 }
 
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
 .contact-wrapper a {
   display: inline-flex;
   align-items: center;
@@ -785,10 +792,28 @@ body.modal-open {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.contact-link--whatsapp {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  justify-content: center;
+  background: #25d366;
+}
+
+.contact-link--whatsapp svg {
+  width: 22px;
+  height: 22px;
+}
+
 .contact-wrapper a:hover,
 .contact-wrapper a:focus {
   transform: translateY(-2px);
   box-shadow: 0 20px 35px rgba(13, 71, 161, 0.25);
+}
+
+.contact-link--whatsapp:hover,
+.contact-link--whatsapp:focus {
+  box-shadow: 0 20px 35px rgba(37, 211, 102, 0.35);
 }
 
 footer {

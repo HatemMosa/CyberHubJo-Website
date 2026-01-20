@@ -318,6 +318,11 @@ main {
   box-shadow: 0 20px 40px rgba(13, 71, 161, 0.15);
 }
 
+.cards.team-grid .team-card--contributor {
+  border: 1px solid rgba(46, 125, 50, 0.25);
+  background: rgba(46, 125, 50, 0.04);
+}
+
 .stats-grid {
   max-width: var(--max-width);
   margin: 0 auto 32px;
@@ -630,6 +635,16 @@ body.modal-open {
   color: var(--accent-color);
 }
 
+.badge.badge-contributor {
+  background: rgba(46, 125, 50, 0.15);
+  color: #2e7d32;
+}
+
+.badge.badge-contributor::before {
+  content: '●';
+  color: #2e7d32;
+}
+
 .card .links {
   display: flex;
   flex-wrap: wrap;
@@ -758,6 +773,13 @@ body.modal-open {
   margin-bottom: 24px;
 }
 
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
 .contact-wrapper a {
   display: inline-flex;
   align-items: center;
@@ -770,10 +792,34 @@ body.modal-open {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.contact-link--whatsapp {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  justify-content: center;
+  background: #25d366;
+}
+
+.contact-link--whatsapp svg {
+  width: 22px;
+  height: 22px;
+}
+
+.contact-link--whatsapp img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
 .contact-wrapper a:hover,
 .contact-wrapper a:focus {
   transform: translateY(-2px);
   box-shadow: 0 20px 35px rgba(13, 71, 161, 0.25);
+}
+
+.contact-link--whatsapp:hover,
+.contact-link--whatsapp:focus {
+  box-shadow: 0 20px 35px rgba(37, 211, 102, 0.35);
 }
 
 footer {

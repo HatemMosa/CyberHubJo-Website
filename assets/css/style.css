@@ -318,6 +318,11 @@ main {
   box-shadow: 0 20px 40px rgba(13, 71, 161, 0.15);
 }
 
+.cards.team-grid .team-card--contributor {
+  border: 1px solid rgba(46, 125, 50, 0.25);
+  background: rgba(46, 125, 50, 0.04);
+}
+
 .stats-grid {
   max-width: var(--max-width);
   margin: 0 auto 32px;
@@ -628,6 +633,16 @@ body.modal-open {
   content: '★';
   font-size: 0.75rem;
   color: var(--accent-color);
+}
+
+.badge.badge-contributor {
+  background: rgba(46, 125, 50, 0.15);
+  color: #2e7d32;
+}
+
+.badge.badge-contributor::before {
+  content: '●';
+  color: #2e7d32;
 }
 
 .card .links {
